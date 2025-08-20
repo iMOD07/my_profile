@@ -19,7 +19,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: ThemeApp.appBarColor,
         title: Text(
           "Mohammed AL Manarh",
-          style: TextStyle(color: ThemeApp.textPrimary),
+          style: TextStyle(color: ThemeApp.textColorPrimary),
         ),
       ),
       body: SingleChildScrollView(
@@ -49,11 +49,19 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               ),
+              SizedBox(height: 20),
               Row(
                 // Row ENG
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [Text("SOFTWARE ENGINEER")],
+                children: [
+                  Text(
+                    "SOFTWARE ENGINEER",
+                    style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+                  ),
+                ],
               ),
+              // ========================================================================================
+              // ========================================================================================
               Row(
                 // Row About Me
                 mainAxisSize: MainAxisSize.max,
@@ -77,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ],
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(20.20),
+                      padding: const EdgeInsets.all(16.16),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: const [
@@ -90,12 +98,11 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                           SizedBox(height: 1),
                           Text(
-                            "A Specialist in Database Management and Programming, currently working\n"
-                            "As a Database Programmer at Arab Sea Information Systems\n"
-                            "I have over two years of experience in database management and programming.",
+                            "Software Engineer A Specialist in Database Management and Programming, currently working"
+                            "As a Database Programmer at Arab Sea Information Systems I have over two years of experience in database management and programming.",
                             style: TextStyle(
                               fontSize: SizeText.secondary,
-                              color: ThemeApp.textPrimary,
+                              color: ThemeApp.textColorPrimary,
                             ),
                           ),
                         ],
@@ -104,8 +111,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               ),
+              // ========================================================================================
+              // ========================================================================================
               Row(
-                // Row About Me
+                // Row Technologies I Work With
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -129,29 +138,47 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Padding(
                       padding: const EdgeInsets.all(20.20),
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: const [
                           Text(
-                            "Skills",
+                            "Technologies I Work With",
                             style: TextStyle(
                               fontSize: SizeText.primary,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                           SizedBox(height: 1),
-                          Text(
-                            "Flutter, Dart, Java, C#, SQL, Python, HTML, CSS, JavaScript",
-                            style: TextStyle(
-                              fontSize: SizeText.secondary,
-                              color: ThemeApp.textPrimary,
-                            ),
+                          Wrap(
+                            spacing: 5,
+                            runSpacing: 9,
+                            alignment: WrapAlignment.center,
+                            crossAxisAlignment: WrapCrossAlignment.center,
+                            direction: Axis.horizontal,
+                            runAlignment: WrapAlignment.center,
+                            verticalDirection: VerticalDirection.down,
+                            clipBehavior: Clip.none,
+                            //children: [
+                            //ClipRRect(
+                            //borderRadius: BorderRadius.circular(8),
+                            //child: Image
+                            //'assets/images/AWS_-_01.png',
+                            //width: 75,
+                            //height: 75,
+                            //fit: BoxFit.contain,
+                            //),
                           ),
                         ],
                       ),
+                      //],
                     ),
                   ),
+                  //),
                 ],
               ),
+              // ========================================================================================
+              // ========================================================================================
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [

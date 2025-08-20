@@ -6,5 +6,15 @@ class SizeText {
 
 class SizeContainer {
   static const double height = 150.0;
-  static const double width = 850.0;
+  static const double width = 865.0;
+}
+
+class ConCert {
+  static const double height = 300.0;
+  static const double width = 400.00;
+}
+
+class ConComm {
+  static const double height = 100.0;
+  static const double width = 200.00;
 }

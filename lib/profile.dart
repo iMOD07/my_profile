@@ -116,12 +116,13 @@ class _MyHomePageState extends State<MyHomePage> {
               // ========================================================================================
               // ========================================================================================
               Row(
+                // Technologies I Work With
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    height: 280, // height Container Technologies I Work With
+                    height: 280,
                     width: SizeContainer.width,
                     margin: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
@@ -785,6 +786,7 @@ class _MyHomePageState extends State<MyHomePage> {
               // ========================================================================================
               // ========================================================================================
               Row(
+                // Row Professional Certificates
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -792,7 +794,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Container(
                     height: 695,
                     width: SizeContainer.width,
-
+                    margin: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(12),
@@ -899,6 +901,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
               // ========================================================================================
               Row(
+                // Row Contact Me
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -906,7 +909,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Container(
                     height: 300,
                     width: SizeContainer.width,
-
+                    margin: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(12),
@@ -922,7 +925,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       padding: const EdgeInsets.all(16),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
-
                         children: [
                           Text(
                             "Contact Me",
@@ -933,95 +935,98 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                           ),
 
-                          // Row One
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
+                          Column(
                             children: [
-                              Container(
-                                margin: EdgeInsets.all(8),
-                                width: ConComm.width,
-                                height: ConComm.height,
-                                decoration: BoxDecoration(
-                                  borderRadius: const BorderRadius.all(
-                                    Radius.circular(5),
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    margin: EdgeInsets.all(8),
+                                    width: ConComm.width,
+                                    height: ConComm.height,
+                                    decoration: BoxDecoration(
+                                      borderRadius: const BorderRadius.all(
+                                        Radius.circular(5),
+                                      ),
+                                      shape: BoxShape.rectangle,
+                                      border: Border.all(
+                                        color: ThemeApp.shapeColor,
+                                        width: 1,
+                                      ),
+                                    ),
                                   ),
-                                  shape: BoxShape.rectangle,
-                                  border: Border.all(
-                                    color: ThemeApp.shapeColor,
-                                    width: 1,
+                                  Container(
+                                    margin: EdgeInsets.all(8),
+                                    width: ConComm.width,
+                                    height: ConComm.height,
+                                    decoration: BoxDecoration(
+                                      borderRadius: const BorderRadius.all(
+                                        Radius.circular(5),
+                                      ),
+                                      shape: BoxShape.rectangle,
+                                      border: Border.all(
+                                        color: ThemeApp.shapeColor,
+                                        width: 1,
+                                      ),
+                                    ),
                                   ),
-                                ),
+                                  Container(
+                                    margin: EdgeInsets.all(8),
+                                    width: ConComm.width,
+                                    height: ConComm.height,
+                                    decoration: BoxDecoration(
+                                      borderRadius: const BorderRadius.all(
+                                        Radius.circular(5),
+                                      ),
+                                      shape: BoxShape.rectangle,
+                                      border: Border.all(
+                                        color: ThemeApp.shapeColor,
+                                        width: 1,
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
-                              Container(
-                                margin: EdgeInsets.all(8),
-                                width: ConComm.width,
-                                height: ConComm.height,
-                                decoration: BoxDecoration(
-                                  borderRadius: const BorderRadius.all(
-                                    Radius.circular(5),
-                                  ),
-                                  shape: BoxShape.rectangle,
-                                  border: Border.all(
-                                    color: ThemeApp.shapeColor,
-                                    width: 1,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                margin: EdgeInsets.all(8),
-                                width: ConComm.width,
-                                height: ConComm.height,
-                                decoration: BoxDecoration(
-                                  borderRadius: const BorderRadius.all(
-                                    Radius.circular(5),
-                                  ),
-                                  shape: BoxShape.rectangle,
-                                  border: Border.all(
-                                    color: ThemeApp.shapeColor,
-                                    width: 1,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
 
-                          // Row Two
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                margin: EdgeInsets.all(8),
-                                width: ConComm.width,
-                                height: ConComm.height,
-                                decoration: BoxDecoration(
-                                  borderRadius: const BorderRadius.all(
-                                    Radius.circular(5),
+                              // Row Two
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    margin: EdgeInsets.all(8),
+                                    width: ConComm.width,
+                                    height: ConComm.height,
+                                    decoration: BoxDecoration(
+                                      borderRadius: const BorderRadius.all(
+                                        Radius.circular(5),
+                                      ),
+                                      shape: BoxShape.rectangle,
+                                      border: Border.all(
+                                        color: ThemeApp.shapeColor,
+                                        width: 1,
+                                      ),
+                                    ),
                                   ),
-                                  shape: BoxShape.rectangle,
-                                  border: Border.all(
-                                    color: ThemeApp.shapeColor,
-                                    width: 1,
+                                  Container(
+                                    margin: EdgeInsets.all(8),
+                                    width: ConComm.width,
+                                    height: ConComm.height,
+                                    decoration: BoxDecoration(
+                                      borderRadius: const BorderRadius.all(
+                                        Radius.circular(5),
+                                      ),
+                                      shape: BoxShape.rectangle,
+                                      border: Border.all(
+                                        color: ThemeApp.shapeColor,
+                                        width: 1,
+                                      ),
+                                    ),
                                   ),
-                                ),
-                              ),
-                              Container(
-                                margin: EdgeInsets.all(8),
-                                width: ConComm.width,
-                                height: ConComm.height,
-                                decoration: BoxDecoration(
-                                  borderRadius: const BorderRadius.all(
-                                    Radius.circular(5),
-                                  ),
-                                  shape: BoxShape.rectangle,
-                                  border: Border.all(
-                                    color: ThemeApp.shapeColor,
-                                    width: 1,
-                                  ),
-                                ),
+                                ],
                               ),
                             ],
                           ),
@@ -1032,6 +1037,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
               SizedBox(height: 100),
+              Text("© 2025 Mohammed AL Manarah. All rights reserved."),
+              SizedBox(height: 20),
             ],
           ),
         ),

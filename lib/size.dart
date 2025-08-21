@@ -10,8 +10,8 @@ class SizeContainer {
 }
 
 class ConCert {
-  static const double height = 300.0;
-  static const double width = 400.00;
+  static const double height = 270.0;
+  static const double width = 350.00;
 }
 
 class ConComm {

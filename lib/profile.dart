@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:my_profile/Theme.dart';
 import 'size.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'logo.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -12,6 +14,113 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final List<Logo> logos = [
+    Logo(
+      name: 'AWS',
+      imageUrl:
+          'https://res.cloudinary.com/drzpjbr87/image/upload/v1755681317/AWS_zhzlxe.png',
+    ),
+    Logo(
+      name: 'Flutter',
+      imageUrl:
+          'https://res.cloudinary.com/drzpjbr87/image/upload/v1755681317/Flutter_zbofhr.png',
+    ),
+    Logo(
+      name: 'Java',
+      imageUrl:
+          'https://res.cloudinary.com/drzpjbr87/image/upload/v1755681317/java_hrwvqt.png',
+    ),
+    Logo(
+      name: 'VS Code',
+      imageUrl:
+          'https://res.cloudinary.com/drzpjbr87/image/upload/v1755681319/VS_Code_i0rf4y.png',
+    ),
+    Logo(
+      name: 'Spring Boot',
+      imageUrl:
+          'https://res.cloudinary.com/drzpjbr87/image/upload/v1755681319/Spring_boot_gbjnwk.png',
+    ),
+
+    Logo(
+      name: 'SQL Server',
+      imageUrl:
+          'https://res.cloudinary.com/drzpjbr87/image/upload/v1755681319/sql_server_fxpukw.png',
+    ),
+    Logo(
+      name: 'Python',
+      imageUrl:
+          'https://res.cloudinary.com/drzpjbr87/image/upload/v1755681318/python_u57mza.png',
+    ),
+    Logo(
+      name: 'MySQL',
+      imageUrl:
+          'https://res.cloudinary.com/drzpjbr87/image/upload/v1755681318/mysql_zcs8tc.png',
+    ),
+    Logo(
+      name: 'Postman',
+      imageUrl:
+          'https://res.cloudinary.com/drzpjbr87/image/upload/v1755681318/Postman_ljor1n.png',
+    ),
+    Logo(
+      name: 'PostgreSQL',
+      imageUrl:
+          'https://res.cloudinary.com/drzpjbr87/image/upload/v1755681318/Postgresql_rumdui.png',
+    ),
+    Logo(
+      name: 'Oracle',
+      imageUrl:
+          'https://res.cloudinary.com/drzpjbr87/image/upload/v1755681318/oracle_j1fboc.png',
+    ),
+    Logo(
+      name: 'Mongodb',
+      imageUrl:
+          'https://res.cloudinary.com/drzpjbr87/image/upload/v1755681318/mongodb_p8oj0r.png',
+    ),
+    Logo(
+      name: 'JS',
+      imageUrl:
+          'https://res.cloudinary.com/drzpjbr87/image/upload/v1755681318/js_v5syzx.png',
+    ),
+    Logo(
+      name: 'IJ',
+      imageUrl:
+          'https://res.cloudinary.com/drzpjbr87/image/upload/v1755681317/IJ_yf9acr.jpg',
+    ),
+    Logo(
+      name: 'CSS',
+      imageUrl:
+          'https://res.cloudinary.com/drzpjbr87/image/upload/v1755681317/CSS_qnuvru.png',
+    ),
+    Logo(
+      name: 'GitHub',
+      imageUrl:
+          'https://res.cloudinary.com/drzpjbr87/image/upload/v1755681317/github_sqv1ik.png',
+    ),
+    Logo(
+      name: 'HTML',
+      imageUrl:
+          'https://res.cloudinary.com/drzpjbr87/image/upload/v1755681317/html_n5lrys.png',
+    ),
+    Logo(
+      name: 'Firebase',
+      imageUrl:
+          'https://res.cloudinary.com/drzpjbr87/image/upload/v1755681317/firebase_emybve.png',
+    ),
+    Logo(
+      name: 'FlutterFlow',
+      imageUrl:
+          'https://res.cloudinary.com/drzpjbr87/image/upload/v1755681317/FlutterFlow_ddolyf.png',
+    ),
+    Logo(
+      name: 'Git',
+      imageUrl:
+          'https://res.cloudinary.com/drzpjbr87/image/upload/v1755681317/git_yutbmq.png',
+    ),
+
+    // Logo(name: '', imageUrl: ''),
+    // Add Any Logo Here
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -122,7 +231,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    height: 280,
+                    height: 450,
                     width: SizeContainer.width,
                     margin: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
@@ -130,7 +239,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       borderRadius: BorderRadius.circular(12),
                       boxShadow: [
                         BoxShadow(
-                          // ignore: deprecated_member_use
                           color: Colors.grey.withOpacity(0.3),
                           blurRadius: 8,
                           offset: const Offset(0, 4),
@@ -138,226 +246,38 @@ class _MyHomePageState extends State<MyHomePage> {
                       ],
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(20.20),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.max,
+                      padding: const EdgeInsets.all(16),
+                      child: Wrap(
+                        spacing: 20, // مسافة بين العناصر يمين ويسار
+                        runSpacing: 20, // مسافة بين الصفوف لو نزلت
                         children: [
-                          const Text(
-                            "Technologies I Work With",
-                            style: TextStyle(
-                              fontSize: SizeText.primary,
-                              fontWeight: FontWeight.bold,
-                              color: ThemeApp.textColorPrimary,
-                            ),
-                          ),
-                          const SizedBox(height: 1),
-                          Container(
-                            width: 820,
-                            height: 180,
-                            decoration: BoxDecoration(
-                              color: const Color.fromARGB(255, 255, 255, 255),
-                              borderRadius: const BorderRadius.all(
-                                Radius.circular(20),
-                              ),
-                              border: Border.all(
-                                color: ThemeApp.secondaryBackground,
-                                width: 1,
-                              ),
-                            ),
-                            child: Wrap(
-                              spacing: 5,
-                              runSpacing: 9,
-                              alignment: WrapAlignment.center,
-                              crossAxisAlignment: WrapCrossAlignment.center,
-                              direction: Axis.horizontal,
-                              runAlignment: WrapAlignment.center,
-                              verticalDirection: VerticalDirection.down,
-                              clipBehavior: Clip.none,
-                              children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(8),
-                                  child: Image.network(
-                                    "https://res.cloudinary.com/drzpjbr87/image/upload/v1755681317/AWS_zhzlxe.png",
-                                    width: 75,
-                                    height: 75,
-                                    fit: BoxFit.cover,
-                                  ),
+                          Wrap(
+                            spacing: 15,
+                            runSpacing: 20,
+                            children: logos.map((logo) {
+                              return SizedBox(
+                                width: 80,
+                                height: 80,
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Image.network(
+                                      logo.imageUrl,
+                                      width: 50,
+                                      height: 50,
+                                      fit: BoxFit.cover,
+                                    ),
+                                    SizedBox(height: 8),
+                                    Text(
+                                      logo.name,
+                                      style: TextStyle(fontSize: 14),
+                                    ),
+                                  ],
                                 ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(8),
-                                  child: Image.network(
-                                    "https://res.cloudinary.com/drzpjbr87/image/upload/v1755681317/AWS_zhzlxe.png",
-                                    width: 75,
-                                    height: 75,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(8),
-                                  child: Image.network(
-                                    "https://res.cloudinary.com/drzpjbr87/image/upload/v1755681317/AWS_zhzlxe.png",
-                                    width: 75,
-                                    height: 75,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(8),
-                                  child: Image.network(
-                                    "https://res.cloudinary.com/drzpjbr87/image/upload/v1755681317/AWS_zhzlxe.png",
-                                    width: 75,
-                                    height: 75,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(8),
-                                  child: Image.network(
-                                    "https://res.cloudinary.com/drzpjbr87/image/upload/v1755681317/AWS_zhzlxe.png",
-                                    width: 75,
-                                    height: 75,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(8),
-                                  child: Image.network(
-                                    "https://res.cloudinary.com/drzpjbr87/image/upload/v1755681317/AWS_zhzlxe.png",
-                                    width: 75,
-                                    height: 75,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(8),
-                                  child: Image.network(
-                                    "https://res.cloudinary.com/drzpjbr87/image/upload/v1755681317/AWS_zhzlxe.png",
-                                    width: 75,
-                                    height: 75,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(8),
-                                  child: Image.network(
-                                    "https://res.cloudinary.com/drzpjbr87/image/upload/v1755681317/AWS_zhzlxe.png",
-                                    width: 75,
-                                    height: 75,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(8),
-                                  child: Image.network(
-                                    "https://res.cloudinary.com/drzpjbr87/image/upload/v1755681317/AWS_zhzlxe.png",
-                                    width: 75,
-                                    height: 75,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(8),
-                                  child: Image.network(
-                                    "https://res.cloudinary.com/drzpjbr87/image/upload/v1755681317/AWS_zhzlxe.png",
-                                    width: 75,
-                                    height: 75,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(8),
-                                  child: Image.network(
-                                    "https://res.cloudinary.com/drzpjbr87/image/upload/v1755681317/AWS_zhzlxe.png",
-                                    width: 75,
-                                    height: 75,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(8),
-                                  child: Image.network(
-                                    "https://res.cloudinary.com/drzpjbr87/image/upload/v1755681317/AWS_zhzlxe.png",
-                                    width: 75,
-                                    height: 75,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(8),
-                                  child: Image.network(
-                                    "https://res.cloudinary.com/drzpjbr87/image/upload/v1755681317/AWS_zhzlxe.png",
-                                    width: 75,
-                                    height: 75,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(8),
-                                  child: Image.network(
-                                    "https://res.cloudinary.com/drzpjbr87/image/upload/v1755681317/AWS_zhzlxe.png",
-                                    width: 75,
-                                    height: 75,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(8),
-                                  child: Image.network(
-                                    "https://res.cloudinary.com/drzpjbr87/image/upload/v1755681317/AWS_zhzlxe.png",
-                                    width: 75,
-                                    height: 75,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(8),
-                                  child: Image.network(
-                                    "https://res.cloudinary.com/drzpjbr87/image/upload/v1755681317/AWS_zhzlxe.png",
-                                    width: 75,
-                                    height: 75,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(8),
-                                  child: Image.network(
-                                    "https://res.cloudinary.com/drzpjbr87/image/upload/v1755681317/AWS_zhzlxe.png",
-                                    width: 75,
-                                    height: 75,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(8),
-                                  child: Image.network(
-                                    "https://res.cloudinary.com/drzpjbr87/image/upload/v1755681317/AWS_zhzlxe.png",
-                                    width: 75,
-                                    height: 75,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(8),
-                                  child: Image.network(
-                                    "https://res.cloudinary.com/drzpjbr87/image/upload/v1755681317/AWS_zhzlxe.png",
-                                    width: 75,
-                                    height: 75,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(8),
-                                  child: Image.network(
-                                    "https://res.cloudinary.com/drzpjbr87/image/upload/v1755681317/AWS_zhzlxe.png",
-                                    width: 75,
-                                    height: 75,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ],
-                            ),
+                              );
+                            }).toList(),
                           ),
                         ],
                       ),
@@ -409,7 +329,6 @@ class _MyHomePageState extends State<MyHomePage> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children:
                                     [
-                                          // العمود الأول (النقطة والخط)
                                           Padding(
                                             padding: const EdgeInsets.only(
                                               right: 12.0,
@@ -442,7 +361,6 @@ class _MyHomePageState extends State<MyHomePage> {
                                             ),
                                           ),
 
-                                          // العمود الثاني (النصوص)
                                           Column(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -451,7 +369,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Container(
-                                                width: 350,
+                                                width: 400,
                                                 height: 100,
                                                 padding: const EdgeInsets.all(
                                                   8.0,
@@ -499,7 +417,6 @@ class _MyHomePageState extends State<MyHomePage> {
                                             ],
                                           ),
 
-                                          // العمود الثالث (الصورة)
                                           Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -508,6 +425,127 @@ class _MyHomePageState extends State<MyHomePage> {
                                                     BorderRadius.circular(8),
                                                 child: Image.network(
                                                   "https://res.cloudinary.com/drzpjbr87/image/upload/v1755690658/Screenshot_2025-08-20_144748_ybtjun.jpg",
+                                                  width: 100,
+                                                  height: 100,
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ]
+                                        .map(
+                                          (widget) => Padding(
+                                            padding: const EdgeInsets.symmetric(
+                                              horizontal: 25,
+                                            ),
+                                            child: widget,
+                                          ),
+                                        )
+                                        .toList(),
+                              ),
+
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children:
+                                    [
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                              right: 12.0,
+                                            ),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Container(
+                                                  width: 16,
+                                                  height: 16,
+                                                  decoration:
+                                                      const BoxDecoration(
+                                                        color:
+                                                            ThemeApp.shapeColor,
+                                                        shape: BoxShape.circle,
+                                                      ),
+                                                ),
+                                                Container(
+                                                  width: 2,
+                                                  height: 100,
+                                                  decoration:
+                                                      const BoxDecoration(
+                                                        color:
+                                                            ThemeApp.shapeColor,
+                                                      ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+
+                                          Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Container(
+                                                width: 400,
+                                                height: 100,
+                                                padding: const EdgeInsets.all(
+                                                  8.0,
+                                                ),
+                                                child: Column(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      'OCT 2022 - APR 2023',
+                                                      textAlign: TextAlign.left,
+                                                      style: GoogleFonts.inter(
+                                                        fontSize: 16,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        color: ThemeApp
+                                                            .textColorPrimary,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      'King Salman Specialist Hospital',
+                                                      style: GoogleFonts.inter(
+                                                        fontSize: 23,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        color: ThemeApp
+                                                            .textColorPrimary,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      'Technical Support',
+                                                      style: GoogleFonts.inter(
+                                                        fontSize: 18,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        color: ThemeApp
+                                                            .textColorPrimary,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+
+                                          Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(8),
+                                                child: Image.network(
+                                                  "https://res.cloudinary.com/drzpjbr87/image/upload/v1755776009/Hail_Health_Cluster_v1oury.jpg",
                                                   width: 100,
                                                   height: 100,
                                                   fit: BoxFit.cover,
@@ -575,7 +613,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Container(
-                                                width: 350,
+                                                width: 400,
                                                 height: 100,
                                                 padding: const EdgeInsets.all(
                                                   8.0,
@@ -587,7 +625,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                       CrossAxisAlignment.start,
                                                   children: [
                                                     Text(
-                                                      'AUG 2023 - Present',
+                                                      'MAY 2021 - DEC 2021',
                                                       textAlign: TextAlign.left,
                                                       style: GoogleFonts.inter(
                                                         fontSize: 16,
@@ -598,7 +636,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                       ),
                                                     ),
                                                     Text(
-                                                      'Arab Sea Information System',
+                                                      'Hail Health Cluster',
                                                       style: GoogleFonts.inter(
                                                         fontSize: 23,
                                                         fontWeight:
@@ -608,7 +646,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                       ),
                                                     ),
                                                     Text(
-                                                      'Database Program',
+                                                      'COOP Training',
                                                       style: GoogleFonts.inter(
                                                         fontSize: 18,
                                                         fontWeight:
@@ -631,131 +669,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 borderRadius:
                                                     BorderRadius.circular(8),
                                                 child: Image.network(
-                                                  "https://res.cloudinary.com/drzpjbr87/image/upload/v1755690658/Screenshot_2025-08-20_144748_ybtjun.jpg",
-                                                  width: 100,
-                                                  height: 100,
-                                                  fit: BoxFit.cover,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ]
-                                        .map(
-                                          (widget) => Padding(
-                                            padding: const EdgeInsets.symmetric(
-                                              horizontal: 25,
-                                            ),
-                                            child: widget,
-                                          ),
-                                        )
-                                        .toList(),
-                              ),
-
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children:
-                                    [
-                                          // العمود الأول (النقطة والخط)
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                              right: 12.0,
-                                            ),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Container(
-                                                  width: 16,
-                                                  height: 16,
-                                                  decoration:
-                                                      const BoxDecoration(
-                                                        color:
-                                                            ThemeApp.shapeColor,
-                                                        shape: BoxShape.circle,
-                                                      ),
-                                                ),
-                                                Container(
-                                                  width: 2,
-                                                  height: 100,
-                                                  decoration:
-                                                      const BoxDecoration(
-                                                        color:
-                                                            ThemeApp.shapeColor,
-                                                      ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-
-                                          // العمود الثاني (النصوص)
-                                          Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Container(
-                                                width: 350,
-                                                height: 100,
-                                                padding: const EdgeInsets.all(
-                                                  8.0,
-                                                ),
-                                                child: Column(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Text(
-                                                      'AUG 2023 - Present',
-                                                      textAlign: TextAlign.left,
-                                                      style: GoogleFonts.inter(
-                                                        fontSize: 16,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        color: ThemeApp
-                                                            .textColorPrimary,
-                                                      ),
-                                                    ),
-                                                    Text(
-                                                      'Arab Sea Information System',
-                                                      style: GoogleFonts.inter(
-                                                        fontSize: 23,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        color: ThemeApp
-                                                            .textColorPrimary,
-                                                      ),
-                                                    ),
-                                                    Text(
-                                                      'Database Program',
-                                                      style: GoogleFonts.inter(
-                                                        fontSize: 18,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        color: ThemeApp
-                                                            .textColorPrimary,
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-
-                                          // العمود الثالث (الصورة)
-                                          Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(8),
-                                                child: Image.network(
-                                                  "https://res.cloudinary.com/drzpjbr87/image/upload/v1755690658/Screenshot_2025-08-20_144748_ybtjun.jpg",
+                                                  "https://res.cloudinary.com/drzpjbr87/image/upload/v1755776009/Hail_Health_Cluster_v1oury.jpg",
                                                   width: 100,
                                                   height: 100,
                                                   fit: BoxFit.cover,
@@ -825,7 +739,10 @@ class _MyHomePageState extends State<MyHomePage> {
                           Row(
                             children: [
                               Container(
-                                margin: EdgeInsets.all(8),
+                                margin: EdgeInsets.symmetric(
+                                  horizontal: 45,
+                                  vertical: 10,
+                                ),
                                 width: ConCert.width,
                                 height: ConCert.height,
                                 decoration: BoxDecoration(
@@ -838,9 +755,49 @@ class _MyHomePageState extends State<MyHomePage> {
                                     width: 1,
                                   ),
                                 ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Image.network(
+                                      "https://res.cloudinary.com/drzpjbr87/image/upload/v1755768178/AWS_Developer_iutqg7.png",
+                                      width: 180,
+                                      height: 180,
+                                      fit: BoxFit.cover,
+                                    ),
+
+                                    SizedBox(height: 8),
+                                    Text(
+                                      'AWS Certified Developer',
+                                      style: TextStyle(
+                                        color: ThemeApp.textColorPrimary,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Text(
+                                      '07 December 2024',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        color: Colors.grey[700],
+                                      ),
+                                    ),
+                                    Text(
+                                      'View certificate',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        color: ThemeApp.viewCertification,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
+
                               Container(
-                                margin: EdgeInsets.all(8),
+                                margin: EdgeInsets.symmetric(
+                                  horizontal: 0,
+                                  vertical: 10,
+                                ),
                                 width: ConCert.width,
                                 height: ConCert.height,
                                 decoration: BoxDecoration(
@@ -852,16 +809,53 @@ class _MyHomePageState extends State<MyHomePage> {
                                     color: ThemeApp.shapeColor,
                                     width: 1,
                                   ),
+                                ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Image.network(
+                                      "https://res.cloudinary.com/drzpjbr87/image/upload/v1755768178/AWS_Solutions_Architect_awa7ke.png",
+                                      width: 180,
+                                      height: 180,
+                                      fit: BoxFit.cover,
+                                    ),
+                                    SizedBox(height: 8),
+                                    Text(
+                                      'AWS Certified Solutions Architec',
+                                      style: TextStyle(
+                                        color: ThemeApp.textColorPrimary,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Text(
+                                      '09 November 2024',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        color: Colors.grey[700],
+                                      ),
+                                    ),
+                                    Text(
+                                      'View certificate',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        color: ThemeApp.viewCertification,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ],
                           ),
-
                           // Row Two
                           Row(
                             children: [
                               Container(
-                                margin: EdgeInsets.all(8),
+                                margin: EdgeInsets.symmetric(
+                                  horizontal: 45,
+                                  vertical: 10,
+                                ),
                                 width: ConCert.width,
                                 height: ConCert.height,
                                 decoration: BoxDecoration(
@@ -874,9 +868,49 @@ class _MyHomePageState extends State<MyHomePage> {
                                     width: 1,
                                   ),
                                 ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Image.network(
+                                      "https://res.cloudinary.com/drzpjbr87/image/upload/v1755768178/ORACLE_Database_txfd2z.png",
+                                      width: 180,
+                                      height: 180,
+                                      fit: BoxFit.cover,
+                                    ),
+
+                                    SizedBox(height: 8),
+                                    Text(
+                                      'Oracle Database SQL',
+                                      style: TextStyle(
+                                        color: ThemeApp.textColorPrimary,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Text(
+                                      '23 March 2023',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        color: Colors.grey[700],
+                                      ),
+                                    ),
+                                    Text(
+                                      'View certificate',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        color: ThemeApp.viewCertification,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
+
                               Container(
-                                margin: EdgeInsets.all(8),
+                                margin: EdgeInsets.symmetric(
+                                  horizontal: 0,
+                                  vertical: 10,
+                                ),
                                 width: ConCert.width,
                                 height: ConCert.height,
                                 decoration: BoxDecoration(
@@ -888,6 +922,42 @@ class _MyHomePageState extends State<MyHomePage> {
                                     color: ThemeApp.shapeColor,
                                     width: 1,
                                   ),
+                                ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Image.network(
+                                      "https://res.cloudinary.com/drzpjbr87/image/upload/v1755768178/itil_umgdv7.png",
+                                      width: 180,
+                                      height: 180,
+                                      fit: BoxFit.cover,
+                                    ),
+
+                                    SizedBox(height: 8),
+                                    Text(
+                                      'ITIL 4 Foundation',
+                                      style: TextStyle(
+                                        color: ThemeApp.textColorPrimary,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Text(
+                                      '22 April 2023',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        color: Colors.grey[700],
+                                      ),
+                                    ),
+                                    Text(
+                                      'View certificate',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        color: ThemeApp.viewCertification,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ],
@@ -907,7 +977,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    height: 300,
+                    height: 285,
                     width: SizeContainer.width,
                     margin: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
@@ -934,101 +1004,103 @@ class _MyHomePageState extends State<MyHomePage> {
                               color: ThemeApp.textColorPrimary,
                             ),
                           ),
-
-                          Column(
-                            children: [
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    margin: EdgeInsets.all(8),
-                                    width: ConComm.width,
-                                    height: ConComm.height,
-                                    decoration: BoxDecoration(
-                                      borderRadius: const BorderRadius.all(
-                                        Radius.circular(5),
-                                      ),
-                                      shape: BoxShape.rectangle,
-                                      border: Border.all(
-                                        color: ThemeApp.shapeColor,
-                                        width: 1,
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    margin: EdgeInsets.all(8),
-                                    width: ConComm.width,
-                                    height: ConComm.height,
-                                    decoration: BoxDecoration(
-                                      borderRadius: const BorderRadius.all(
-                                        Radius.circular(5),
-                                      ),
-                                      shape: BoxShape.rectangle,
-                                      border: Border.all(
-                                        color: ThemeApp.shapeColor,
-                                        width: 1,
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    margin: EdgeInsets.all(8),
-                                    width: ConComm.width,
-                                    height: ConComm.height,
-                                    decoration: BoxDecoration(
-                                      borderRadius: const BorderRadius.all(
-                                        Radius.circular(5),
-                                      ),
-                                      shape: BoxShape.rectangle,
-                                      border: Border.all(
-                                        color: ThemeApp.shapeColor,
-                                        width: 1,
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                          Container(
+                            margin: EdgeInsets.all(8),
+                            width: 800,
+                            height: 200,
+                            decoration: BoxDecoration(
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(5),
                               ),
-
-                              // Row Two
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    margin: EdgeInsets.all(8),
-                                    width: ConComm.width,
-                                    height: ConComm.height,
-                                    decoration: BoxDecoration(
-                                      borderRadius: const BorderRadius.all(
-                                        Radius.circular(5),
-                                      ),
-                                      shape: BoxShape.rectangle,
-                                      border: Border.all(
-                                        color: ThemeApp.shapeColor,
-                                        width: 1,
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    margin: EdgeInsets.all(8),
-                                    width: ConComm.width,
-                                    height: ConComm.height,
-                                    decoration: BoxDecoration(
-                                      borderRadius: const BorderRadius.all(
-                                        Radius.circular(5),
-                                      ),
-                                      shape: BoxShape.rectangle,
-                                      border: Border.all(
-                                        color: ThemeApp.shapeColor,
-                                        width: 1,
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                              shape: BoxShape.rectangle,
+                              border: Border.all(
+                                color: ThemeApp.shapeColor,
+                                width: 1,
                               ),
-                            ],
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      height: 80,
+                                      width: 250,
+                                      padding: const EdgeInsets.all(8),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: const [
+                                          Icon(Icons.phone_rounded, size: 30),
+                                          Text("+966503369271"),
+                                        ],
+                                      ),
+                                    ),
+                                    Container(
+                                      height: 80,
+                                      width: 250,
+                                      padding: const EdgeInsets.all(8),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: const [
+                                          Icon(Icons.add_road, size: 30),
+                                          Text("mohammed-almanarh"),
+                                        ],
+                                      ),
+                                    ),
+                                    Container(
+                                      height: 80,
+                                      width: 250,
+                                      padding: const EdgeInsets.all(8),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: const [
+                                          Icon(Icons.location_pin, size: 30),
+                                          Text("Riyadh"),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(height: 20),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      height: 80,
+                                      width: 290,
+                                      padding: const EdgeInsets.all(8),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: const [
+                                          Icon(Icons.email_sharp, size: 30),
+                                          Text(
+                                            "mohammed-alshammari0@hotmail.com",
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Container(
+                                      height: 80,
+                                      width: 290,
+                                      padding: const EdgeInsets.all(8),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: const [
+                                          Icon(Icons.phone_rounded, size: 30),
+                                          Text("@iMOOD07"),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),

@@ -9,4 +9,5 @@ class ThemeApp {
   static const Color textColorSecondary = Color(0xFF57636C);
   static const Color appBarColor = Color(0xFFE0E3E7);
   static const Color shapeColor = Color(0xFFE0E3E7);
+  static const Color viewCertification = Color(0xFF09005F);
 }

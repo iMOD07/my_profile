@@ -41,6 +41,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.2"
+  card_animation_hover:
+    dependency: "direct main"
+    description:
+      name: card_animation_hover
+      sha256: fab2ff2268dcb2ed9e9cd1803ac752911a1f930892fe36a9363b3dc9c6214c90
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.2"
   characters:
     dependency: transitive
     description:

@@ -4,6 +4,7 @@ import 'size.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'logo.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:card_animation_hover/card_animation_hover.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -11,6 +12,73 @@ class MyHomePage extends StatefulWidget {
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class LogoCard extends StatefulWidget {
+  final dynamic logo; // اذا عندك كلاس مخصوص اسمه Logo استبدل dynamic بـ Logo
+  final int index;
+
+  const LogoCard({super.key, required this.logo, required this.index});
+
+  @override
+  State<LogoCard> createState() => _LogoCardState();
+}
+
+class _LogoCardState extends State<LogoCard> {
+  bool isHovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+          onEnter: (_) => setState(() => isHovered = true),
+          onExit: (_) => setState(() => isHovered = false),
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 250),
+            curve: Curves.easeOut,
+            width: 90,
+            height: 90,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: isHovered
+                  ? [
+                      BoxShadow(
+                        // ignore: deprecated_member_use
+                        color: Colors.blue.withOpacity(0.3),
+                        blurRadius: 12,
+                        offset: const Offset(0, 6),
+                      ),
+                    ]
+                  : [],
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                AnimatedScale(
+                  scale: isHovered ? 1.2 : 1.0,
+                  duration: const Duration(milliseconds: 250),
+                  child: Image.network(
+                    widget.logo.imageUrl, // لازم logo يكون له imageUrl
+                    width: 50,
+                    height: 50,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  widget.logo.name, // ولازم logo.name يكون موجود
+                  style: const TextStyle(fontSize: 14),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+        )
+        .animate()
+        .fadeIn(duration: 600.ms, delay: (widget.index * 100).ms)
+        .scale(begin: const Offset(0.8, 0.8), end: const Offset(1, 1))
+        .slideY(begin: 0.3, end: 0);
+  }
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -239,6 +307,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       borderRadius: BorderRadius.circular(12),
                       boxShadow: [
                         BoxShadow(
+                          // ignore: deprecated_member_use
                           color: Colors.grey.withOpacity(0.3),
                           blurRadius: 8,
                           offset: const Offset(0, 4),
@@ -247,37 +316,30 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(16),
-                      child: Wrap(
-                        spacing: 20, // مسافة بين العناصر يمين ويسار
-                        runSpacing: 20, // مسافة بين الصفوف لو نزلت
+
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment
+                            .start, // يخلي النص بمحاذاة اليسار
                         children: [
-                          Wrap(
-                            spacing: 15,
-                            runSpacing: 20,
-                            children: logos.map((logo) {
-                              return SizedBox(
-                                width: 80,
-                                height: 80,
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Image.network(
-                                      logo.imageUrl,
-                                      width: 50,
-                                      height: 50,
-                                      fit: BoxFit.cover,
-                                    ),
-                                    SizedBox(height: 8),
-                                    Text(
-                                      logo.name,
-                                      style: TextStyle(fontSize: 14),
-                                    ),
-                                  ],
-                                ),
-                              );
-                            }).toList(),
+                          Text(
+                            "Technologies I Work With",
+                            style: TextStyle(
+                              fontSize: SizeText.primary,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const SizedBox(height: 16),
+                          Expanded(
+                            child: Wrap(
+                              spacing: 20,
+                              runSpacing: 20,
+                              children: logos.asMap().entries.map((entry) {
+                                final index = entry.key;
+                                final logo = entry.value;
+
+                                return LogoCard(logo: logo, index: index);
+                              }).toList(),
+                            ),
                           ),
                         ],
                       ),
@@ -285,7 +347,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               ),
-
               // ========================================================================================
               // ========================================================================================
               Row(
@@ -310,6 +371,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           const Text(
@@ -320,6 +383,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               color: ThemeApp.textColorPrimary,
                             ),
                           ),
+
                           const SizedBox(height: 8),
                           Column(
                             children: [

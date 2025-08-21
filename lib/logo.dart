@@ -1,4 +1,4 @@
-// logo_model.dart
+// logo.dart
 
 class Logo {
   final String name;

@@ -17,6 +17,7 @@ dependencies:
   google_fonts: ^6.3.0
   icons_launcher: ^3.0.1
   flutter_animate: ^4.5.2
+  card_animation_hover: ^0.0.2
 
 dev_dependencies:
   flutter_test:

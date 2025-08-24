@@ -4,6 +4,7 @@ import 'size.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'logo.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+// ignore: unused_import
 import 'package:card_animation_hover/card_animation_hover.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -15,7 +16,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class LogoCard extends StatefulWidget {
-  final dynamic logo; // اذا عندك كلاس مخصوص اسمه Logo استبدل dynamic بـ Logo
+  final dynamic logo;
   final int index;
 
   const LogoCard({super.key, required this.logo, required this.index});
@@ -27,7 +28,7 @@ class LogoCard extends StatefulWidget {
 class _LogoCardState extends State<LogoCard> {
   bool isHovered = false;
 
-  @override
+  @override // Build a function Animation to logo
   Widget build(BuildContext context) {
     return MouseRegion(
           onEnter: (_) => setState(() => isHovered = true),
@@ -44,7 +45,13 @@ class _LogoCardState extends State<LogoCard> {
                   ? [
                       BoxShadow(
                         // ignore: deprecated_member_use
-                        color: Colors.blue.withOpacity(0.3),
+                        color: const Color.fromARGB(
+                          0,
+                          255,
+                          255,
+                          255,
+                          // ignore: deprecated_member_use
+                        ).withOpacity(0.3),
                         blurRadius: 12,
                         offset: const Offset(0, 6),
                       ),
@@ -55,10 +62,10 @@ class _LogoCardState extends State<LogoCard> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 AnimatedScale(
-                  scale: isHovered ? 1.2 : 1.0,
+                  scale: isHovered ? 1.3 : 1.0,
                   duration: const Duration(milliseconds: 250),
                   child: Image.network(
-                    widget.logo.imageUrl, // لازم logo يكون له imageUrl
+                    widget.logo.imageUrl,
                     width: 50,
                     height: 50,
                     fit: BoxFit.cover,
@@ -66,8 +73,8 @@ class _LogoCardState extends State<LogoCard> {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  widget.logo.name, // ولازم logo.name يكون موجود
-                  style: const TextStyle(fontSize: 14),
+                  widget.logo.name,
+                  style: const TextStyle(fontSize: 12),
                   textAlign: TextAlign.center,
                 ),
               ],
@@ -81,6 +88,7 @@ class _LogoCardState extends State<LogoCard> {
   }
 }
 
+// Build a function add Photo to Technologies I Work With
 class _MyHomePageState extends State<MyHomePage> {
   final List<Logo> logos = [
     Logo(
@@ -316,10 +324,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(16),
-
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment
-                            .start, // يخلي النص بمحاذاة اليسار
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             "Technologies I Work With",

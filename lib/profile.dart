@@ -332,9 +332,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    width: SizeContainer.width,
-                    height: 500,
-                    //constraints: const BoxConstraints(maxWidth: 865),
+                    width: responsive.getContainerWidth(),
+                    height: responsive.getContainerHeight(),
                     margin: const EdgeInsets.all(16),
                     padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
@@ -362,7 +361,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         const SizedBox(height: 16),
                         Container(
-                          height: 380,
+                          width: responsive.getContainerWidth(),
+                          height: responsive.getContainerHeight(),
                           padding: const EdgeInsets.all(5),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8),
@@ -397,8 +397,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    height: 450,
-                    width: SizeContainer.width,
+                    width: responsive.getContainerWidth(),
+                    height: responsive.getContainerHeight(),
                     margin: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -812,8 +812,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    height: 695,
-                    width: SizeContainer.width,
+                    width: responsive.getContainerWidth(),
+                    height: responsive.getContainerHeight(),
                     margin: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -1114,8 +1114,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    height: 285,
-                    width: SizeContainer.width,
+                    width: responsive.getContainerWidth(),
+                    height: responsive.getContainerHeight(),
                     margin: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
                       color: Colors.white,

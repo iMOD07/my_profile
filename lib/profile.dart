@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_profile/Theme.dart';
+import 'package:my_profile/utility.dart';
 import 'size.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'logo.dart';
@@ -219,6 +220,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
+    final responsive = ResponsiveHelper(context);
     return Scaffold(
       backgroundColor: ThemeApp.scaffoldBackground,
       appBar: AppBar(
@@ -276,8 +279,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    height: SizeContainer.height,
-                    width: SizeContainer.width,
+                    width: responsive.getContainerWidth(),
+                    height: responsive.getContainerHeight(),
                     margin: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
                       color: Colors.white,

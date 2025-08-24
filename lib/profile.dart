@@ -6,6 +6,8 @@ import 'logo.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 // ignore: unused_import
 import 'package:card_animation_hover/card_animation_hover.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -60,6 +62,8 @@ class _LogoCardState extends State<LogoCard> {
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 AnimatedScale(
                   scale: isHovered ? 1.3 : 1.0,
@@ -90,6 +94,16 @@ class _LogoCardState extends State<LogoCard> {
 
 // Build a function add Photo to Technologies I Work With
 class _MyHomePageState extends State<MyHomePage> {
+  // Function URL
+  void launchURL(String url) async {
+    final Uri uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   final List<Logo> logos = [
     Logo(
       name: 'AWS',
@@ -193,6 +207,12 @@ class _MyHomePageState extends State<MyHomePage> {
           'https://res.cloudinary.com/drzpjbr87/image/upload/v1755681317/git_yutbmq.png',
     ),
 
+    Logo(
+      name: 'azure',
+      imageUrl:
+          'https://res.cloudinary.com/drzpjbr87/image/upload/v1756035545/Microsoft_Azure_uqnijm.png',
+    ),
+
     // Logo(name: '', imageUrl: ''),
     // Add Any Logo Here
   ];
@@ -211,7 +231,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SingleChildScrollView(
         child: Center(
           child: Column(
-            // First Row
+            // First Basic Row
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -246,10 +266,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               ),
+
               // ========================================================================================
               // ========================================================================================
-              Row(
-                // Row About Me
+              Column(
+                // Column About Me
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -298,65 +319,78 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               ),
+
               // ========================================================================================
               // ========================================================================================
-              Row(
-                // Technologies I Work With
+              Column(
+                // Column Technologies I Work With
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    height: 450,
                     width: SizeContainer.width,
+                    height: 500,
+                    //constraints: const BoxConstraints(maxWidth: 865),
                     margin: const EdgeInsets.all(16),
+                    padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(12),
                       boxShadow: [
                         BoxShadow(
-                          // ignore: deprecated_member_use
-                          color: Colors.grey.withOpacity(0.3),
-                          blurRadius: 8,
-                          offset: const Offset(0, 4),
+                          color: Colors.grey.withOpacity(0.2),
+                          blurRadius: 10,
+                          offset: const Offset(0, 5),
                         ),
                       ],
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Technologies I Work With",
-                            style: TextStyle(
-                              fontSize: SizeText.primary,
-                              fontWeight: FontWeight.bold,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Technologies I Work With",
+                          style: TextStyle(
+                            fontSize: SizeText.primary,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        Container(
+                          height: 380,
+                          padding: const EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(
+                              color: ThemeApp.shapeColor,
+                              width: 1,
                             ),
                           ),
-                          const SizedBox(height: 16),
-                          Expanded(
-                            child: Wrap(
-                              spacing: 20,
-                              runSpacing: 20,
-                              children: logos.asMap().entries.map((entry) {
-                                final index = entry.key;
-                                final logo = entry.value;
-
-                                return LogoCard(logo: logo, index: index);
-                              }).toList(),
-                            ),
+                          child: Wrap(
+                            spacing: 20,
+                            runSpacing: 20,
+                            alignment: WrapAlignment.center,
+                            runAlignment: WrapAlignment.center,
+                            crossAxisAlignment: WrapCrossAlignment.center,
+                            children: logos.asMap().entries.map((entry) {
+                              final index = entry.key;
+                              final logo = entry.value;
+                              return LogoCard(logo: logo, index: index);
+                            }).toList(),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
               ),
+
               // ========================================================================================
               // ========================================================================================
-              Row(
-                // Row Work Experience
+              Column(
+                // Column Work Experience
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
@@ -454,7 +488,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                       'AUG 2023 - Present',
                                                       textAlign: TextAlign.left,
                                                       style: GoogleFonts.inter(
-                                                        fontSize: 16,
+                                                        fontSize: 15,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         color: ThemeApp
@@ -464,7 +498,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                     Text(
                                                       'Arab Sea Information System',
                                                       style: GoogleFonts.inter(
-                                                        fontSize: 23,
+                                                        fontSize: 21,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                         color: ThemeApp
@@ -474,7 +508,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                     Text(
                                                       'Database Program',
                                                       style: GoogleFonts.inter(
-                                                        fontSize: 18,
+                                                        fontSize: 17,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         color: ThemeApp
@@ -575,7 +609,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                       'OCT 2022 - APR 2023',
                                                       textAlign: TextAlign.left,
                                                       style: GoogleFonts.inter(
-                                                        fontSize: 16,
+                                                        fontSize: 15,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         color: ThemeApp
@@ -585,7 +619,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                     Text(
                                                       'King Salman Specialist Hospital',
                                                       style: GoogleFonts.inter(
-                                                        fontSize: 23,
+                                                        fontSize: 21,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                         color: ThemeApp
@@ -595,7 +629,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                     Text(
                                                       'Technical Support',
                                                       style: GoogleFonts.inter(
-                                                        fontSize: 18,
+                                                        fontSize: 17,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         color: ThemeApp
@@ -698,7 +732,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                       'MAY 2021 - DEC 2021',
                                                       textAlign: TextAlign.left,
                                                       style: GoogleFonts.inter(
-                                                        fontSize: 16,
+                                                        fontSize: 15,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         color: ThemeApp
@@ -708,7 +742,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                     Text(
                                                       'Hail Health Cluster',
                                                       style: GoogleFonts.inter(
-                                                        fontSize: 23,
+                                                        fontSize: 21,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                         color: ThemeApp
@@ -718,7 +752,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                     Text(
                                                       'COOP Training',
                                                       style: GoogleFonts.inter(
-                                                        fontSize: 18,
+                                                        fontSize: 17,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         color: ThemeApp
@@ -731,7 +765,6 @@ class _MyHomePageState extends State<MyHomePage> {
                                             ],
                                           ),
 
-                                          // العمود الثالث (الصورة)
                                           Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -769,8 +802,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
               // ========================================================================================
               // ========================================================================================
-              Row(
-                // Row Professional Certificates
+              Column(
+                // Column Professional Certificates
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -852,17 +885,24 @@ class _MyHomePageState extends State<MyHomePage> {
                                         color: Colors.grey[700],
                                       ),
                                     ),
-                                    Text(
-                                      'View certificate',
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        color: ThemeApp.viewCertification,
+                                    MouseRegion(
+                                      cursor: SystemMouseCursors.click,
+                                      child: GestureDetector(
+                                        onTap: () => launchURL(
+                                          "https://www.credly.com/badges/051c2ac5-0020-4bad-afa1-3e93fdedeec7/public_url",
+                                        ),
+                                        child: Text(
+                                          'View certificate',
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            color: ThemeApp.viewCertification,
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ],
                                 ),
                               ),
-
                               Container(
                                 margin: EdgeInsets.symmetric(
                                   horizontal: 0,
@@ -906,11 +946,19 @@ class _MyHomePageState extends State<MyHomePage> {
                                         color: Colors.grey[700],
                                       ),
                                     ),
-                                    Text(
-                                      'View certificate',
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        color: ThemeApp.viewCertification,
+                                    MouseRegion(
+                                      cursor: SystemMouseCursors.click,
+                                      child: GestureDetector(
+                                        onTap: () => launchURL(
+                                          "https://www.credly.com/badges/2ee8af69-7a31-4b0a-8e32-d2f69b4a974e/public_url",
+                                        ),
+                                        child: Text(
+                                          'View certificate',
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            color: ThemeApp.viewCertification,
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -965,11 +1013,19 @@ class _MyHomePageState extends State<MyHomePage> {
                                         color: Colors.grey[700],
                                       ),
                                     ),
-                                    Text(
-                                      'View certificate',
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        color: ThemeApp.viewCertification,
+                                    MouseRegion(
+                                      cursor: SystemMouseCursors.click,
+                                      child: GestureDetector(
+                                        onTap: () => launchURL(
+                                          "https://catalog-education.oracle.com/ords/certview/sharebadge?id=D6A97AE2D8C303EE6100CCFF5DC53A67632FDAF788EA1B9872833D4A6AB8FF0D",
+                                        ),
+                                        child: Text(
+                                          'View certificate',
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            color: ThemeApp.viewCertification,
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -1020,11 +1076,19 @@ class _MyHomePageState extends State<MyHomePage> {
                                         color: Colors.grey[700],
                                       ),
                                     ),
-                                    Text(
-                                      'View certificate',
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        color: ThemeApp.viewCertification,
+                                    MouseRegion(
+                                      cursor: SystemMouseCursors.click,
+                                      child: GestureDetector(
+                                        onTap: () => launchURL(
+                                          "https://www.peoplecert.org/login?ReturnUrl=/MyCertifications/badges",
+                                        ),
+                                        child: Text(
+                                          'View certificate',
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            color: ThemeApp.viewCertification,
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -1040,8 +1104,8 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
 
               // ========================================================================================
-              Row(
-                // Row Contact Me
+              Column(
+                // Column Contact Me
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -1101,9 +1165,24 @@ class _MyHomePageState extends State<MyHomePage> {
                                       child: Column(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceAround,
-                                        children: const [
+                                        children: [
                                           Icon(Icons.phone_rounded, size: 30),
-                                          Text("+966503369271"),
+                                          MouseRegion(
+                                            cursor: SystemMouseCursors.click,
+                                            child: GestureDetector(
+                                              onTap: () => launchURL(
+                                                "tel:+966503369271",
+                                              ),
+                                              child: Text(
+                                                "+966503369271",
+                                                style: TextStyle(
+                                                  fontSize: 14,
+                                                  color:
+                                                      ThemeApp.textColorBLACK,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
                                         ],
                                       ),
                                     ),
@@ -1114,9 +1193,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                       child: Column(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceAround,
-                                        children: const [
-                                          Icon(Icons.add_road, size: 30),
-                                          Text("mohammed-almanarh"),
+                                        children: [
+                                          const Icon(
+                                            FontAwesomeIcons.linkedin,
+                                            size: 30,
+                                            color: Color.fromARGB(255, 0, 0, 0),
+                                          ),
+                                          MouseRegion(
+                                            cursor: SystemMouseCursors.click,
+                                            child: GestureDetector(
+                                              onTap: () => launchURL(
+                                                "https://linkedin.com/in/mohammed-almanarh/",
+                                              ),
+                                              child: const Text(
+                                                "mohammed-almanarh",
+                                                style: TextStyle(
+                                                  fontSize: 14,
+                                                  color:
+                                                      ThemeApp.textColorBLACK,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
                                         ],
                                       ),
                                     ),
@@ -1127,9 +1225,25 @@ class _MyHomePageState extends State<MyHomePage> {
                                       child: Column(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceAround,
-                                        children: const [
+                                        children: [
                                           Icon(Icons.location_pin, size: 30),
-                                          Text("Riyadh"),
+
+                                          MouseRegion(
+                                            cursor: SystemMouseCursors.click,
+                                            child: GestureDetector(
+                                              onTap: () => launchURL(
+                                                "https://maps.app.goo.gl/psxon3CmNAbQZJ726",
+                                              ),
+                                              child: Text(
+                                                'Saudi Arabia, Riyadh',
+                                                style: TextStyle(
+                                                  fontSize: 14,
+                                                  color:
+                                                      ThemeApp.textColorBLACK,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
                                         ],
                                       ),
                                     ),
@@ -1146,14 +1260,31 @@ class _MyHomePageState extends State<MyHomePage> {
                                       child: Column(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceAround,
-                                        children: const [
-                                          Icon(Icons.email_sharp, size: 30),
-                                          Text(
-                                            "mohammed-alshammari0@hotmail.com",
+                                        children: [
+                                          const Icon(
+                                            Icons.email_sharp,
+                                            size: 30,
+                                          ),
+                                          MouseRegion(
+                                            cursor: SystemMouseCursors.click,
+                                            child: GestureDetector(
+                                              onTap: () => launchURL(
+                                                "mailto:mohammed-alshammari0@hotmail.com",
+                                              ),
+                                              child: Text(
+                                                "mohammed-alshammari0@hotmail.com",
+                                                style: TextStyle(
+                                                  fontSize: 14,
+                                                  color:
+                                                      ThemeApp.textColorBLACK,
+                                                ),
+                                              ),
+                                            ),
                                           ),
                                         ],
                                       ),
                                     ),
+
                                     Container(
                                       height: 80,
                                       width: 290,
@@ -1161,9 +1292,28 @@ class _MyHomePageState extends State<MyHomePage> {
                                       child: Column(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceAround,
-                                        children: const [
-                                          Icon(Icons.phone_rounded, size: 30),
-                                          Text("@iMOOD07"),
+                                        children: [
+                                          const Icon(
+                                            FontAwesomeIcons.xTwitter,
+                                            size: 30,
+                                            color: Color.fromARGB(255, 0, 0, 0),
+                                          ),
+                                          MouseRegion(
+                                            cursor: SystemMouseCursors.click,
+                                            child: GestureDetector(
+                                              onTap: () => launchURL(
+                                                "https://x.com/iMOOD07",
+                                              ),
+                                              child: Text(
+                                                '@iMOOD07',
+                                                style: TextStyle(
+                                                  fontSize: 14,
+                                                  color:
+                                                      ThemeApp.textColorBLACK,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
                                         ],
                                       ),
                                     ),

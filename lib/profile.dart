@@ -830,7 +830,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       padding: const EdgeInsets.all(16),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
-
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Text(
                             "Professional Certificates",
@@ -840,15 +840,15 @@ class _MyHomePageState extends State<MyHomePage> {
                               color: ThemeApp.textColorPrimary,
                             ),
                           ),
-
-                          // Row One
-                          Row(
+                          SizedBox(height: 8),
+                          Wrap(
+                            spacing: 20,
+                            runSpacing: 20,
+                            alignment: WrapAlignment.center,
+                            runAlignment: WrapAlignment.center,
+                            crossAxisAlignment: WrapCrossAlignment.center,
                             children: [
                               Container(
-                                margin: EdgeInsets.symmetric(
-                                  horizontal: 45,
-                                  vertical: 10,
-                                ),
                                 width: ConCert.width,
                                 height: ConCert.height,
                                 decoration: BoxDecoration(
@@ -906,11 +906,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ],
                                 ),
                               ),
+
+                              // ========
                               Container(
-                                margin: EdgeInsets.symmetric(
-                                  horizontal: 0,
-                                  vertical: 10,
-                                ),
                                 width: ConCert.width,
                                 height: ConCert.height,
                                 decoration: BoxDecoration(
@@ -967,16 +965,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ],
                                 ),
                               ),
-                            ],
-                          ),
-                          // Row Two
-                          Row(
-                            children: [
+
+                              // =======
                               Container(
-                                margin: EdgeInsets.symmetric(
-                                  horizontal: 45,
-                                  vertical: 10,
-                                ),
                                 width: ConCert.width,
                                 height: ConCert.height,
                                 decoration: BoxDecoration(
@@ -1035,11 +1026,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ),
                               ),
 
+                              // =====
                               Container(
-                                margin: EdgeInsets.symmetric(
-                                  horizontal: 0,
-                                  vertical: 10,
-                                ),
                                 width: ConCert.width,
                                 height: ConCert.height,
                                 decoration: BoxDecoration(

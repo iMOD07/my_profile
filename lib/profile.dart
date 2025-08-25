@@ -1122,6 +1122,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       borderRadius: BorderRadius.circular(12),
                       boxShadow: [
                         BoxShadow(
+                          // ignore: deprecated_member_use
                           color: Colors.grey.withOpacity(0.3),
                           blurRadius: 8,
                           offset: const Offset(0, 4),
@@ -1142,9 +1143,9 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                           ),
                           Container(
-                            margin: EdgeInsets.all(8),
-                            width: 800,
-                            height: 200,
+                            margin: const EdgeInsets.all(8),
+                            width: responsive.getContainerWidth(),
+                            height: responsive.getContainerHeight(),
                             decoration: BoxDecoration(
                               borderRadius: const BorderRadius.all(
                                 Radius.circular(5),
@@ -1155,172 +1156,154 @@ class _MyHomePageState extends State<MyHomePage> {
                                 width: 1,
                               ),
                             ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
+                            child: Wrap(
+                              spacing: 20,
+                              runSpacing: 0,
+                              alignment: WrapAlignment.center,
+                              runAlignment: WrapAlignment.center,
+                              crossAxisAlignment: WrapCrossAlignment.center,
                               children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      height: 80,
-                                      width: 250,
-                                      padding: const EdgeInsets.all(8),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceAround,
-                                        children: [
-                                          Icon(Icons.phone_rounded, size: 30),
-                                          MouseRegion(
-                                            cursor: SystemMouseCursors.click,
-                                            child: GestureDetector(
-                                              onTap: () => launchURL(
-                                                "tel:+966503369271",
-                                              ),
-                                              child: Text(
-                                                "+966503369271",
-                                                style: TextStyle(
-                                                  fontSize: 14,
-                                                  color:
-                                                      ThemeApp.textColorBLACK,
-                                                ),
-                                              ),
+                                Container(
+                                  height: 80,
+                                  width: 250,
+                                  padding: const EdgeInsets.all(8),
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      const Icon(Icons.phone_rounded, size: 30),
+                                      MouseRegion(
+                                        cursor: SystemMouseCursors.click,
+                                        child: GestureDetector(
+                                          onTap: () =>
+                                              launchURL("tel:+966503369271"),
+                                          child: Text(
+                                            "+966503369271",
+                                            style: TextStyle(
+                                              fontSize: 14,
+                                              color: ThemeApp.textColorBLACK,
                                             ),
                                           ),
-                                        ],
+                                        ),
                                       ),
-                                    ),
-                                    Container(
-                                      height: 80,
-                                      width: 250,
-                                      padding: const EdgeInsets.all(8),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceAround,
-                                        children: [
-                                          const Icon(
-                                            FontAwesomeIcons.linkedin,
-                                            size: 30,
-                                            color: Color.fromARGB(255, 0, 0, 0),
-                                          ),
-                                          MouseRegion(
-                                            cursor: SystemMouseCursors.click,
-                                            child: GestureDetector(
-                                              onTap: () => launchURL(
-                                                "https://linkedin.com/in/mohammed-almanarh/",
-                                              ),
-                                              child: const Text(
-                                                "mohammed-almanarh",
-                                                style: TextStyle(
-                                                  fontSize: 14,
-                                                  color:
-                                                      ThemeApp.textColorBLACK,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Container(
-                                      height: 80,
-                                      width: 250,
-                                      padding: const EdgeInsets.all(8),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceAround,
-                                        children: [
-                                          Icon(Icons.location_pin, size: 30),
-
-                                          MouseRegion(
-                                            cursor: SystemMouseCursors.click,
-                                            child: GestureDetector(
-                                              onTap: () => launchURL(
-                                                "https://maps.app.goo.gl/psxon3CmNAbQZJ726",
-                                              ),
-                                              child: Text(
-                                                'Saudi Arabia, Riyadh',
-                                                style: TextStyle(
-                                                  fontSize: 14,
-                                                  color:
-                                                      ThemeApp.textColorBLACK,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
-                                const SizedBox(height: 20),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      height: 80,
-                                      width: 290,
-                                      padding: const EdgeInsets.all(8),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceAround,
-                                        children: [
-                                          const Icon(
-                                            Icons.email_sharp,
-                                            size: 30,
+                                Container(
+                                  height: 80,
+                                  width: 250,
+                                  padding: const EdgeInsets.all(8),
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      const Icon(
+                                        FontAwesomeIcons.linkedin,
+                                        size: 30,
+                                        color: Color.fromARGB(255, 0, 0, 0),
+                                      ),
+                                      MouseRegion(
+                                        cursor: SystemMouseCursors.click,
+                                        child: GestureDetector(
+                                          onTap: () => launchURL(
+                                            "https://linkedin.com/in/mohammed-almanarh/",
                                           ),
-                                          MouseRegion(
-                                            cursor: SystemMouseCursors.click,
-                                            child: GestureDetector(
-                                              onTap: () => launchURL(
-                                                "mailto:mohammed-alshammari0@hotmail.com",
-                                              ),
-                                              child: Text(
-                                                "mohammed-alshammari0@hotmail.com",
-                                                style: TextStyle(
-                                                  fontSize: 14,
-                                                  color:
-                                                      ThemeApp.textColorBLACK,
-                                                ),
-                                              ),
+                                          child: const Text(
+                                            "mohammed-almanarh",
+                                            style: TextStyle(
+                                              fontSize: 14,
+                                              color: ThemeApp.textColorBLACK,
                                             ),
                                           ),
-                                        ],
+                                        ),
                                       ),
-                                    ),
-
-                                    Container(
-                                      height: 80,
-                                      width: 290,
-                                      padding: const EdgeInsets.all(8),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceAround,
-                                        children: [
-                                          const Icon(
-                                            FontAwesomeIcons.xTwitter,
-                                            size: 30,
-                                            color: Color.fromARGB(255, 0, 0, 0),
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  height: 80,
+                                  width: 250,
+                                  padding: const EdgeInsets.all(8),
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Icon(Icons.location_pin, size: 30),
+                                      MouseRegion(
+                                        cursor: SystemMouseCursors.click,
+                                        child: GestureDetector(
+                                          onTap: () => launchURL(
+                                            "https://maps.app.goo.gl/psxon3CmNAbQZJ726",
                                           ),
-                                          MouseRegion(
-                                            cursor: SystemMouseCursors.click,
-                                            child: GestureDetector(
-                                              onTap: () => launchURL(
-                                                "https://x.com/iMOOD07",
-                                              ),
-                                              child: Text(
-                                                '@iMOOD07',
-                                                style: TextStyle(
-                                                  fontSize: 14,
-                                                  color:
-                                                      ThemeApp.textColorBLACK,
-                                                ),
-                                              ),
+                                          child: Text(
+                                            'Saudi Arabia, Riyadh',
+                                            style: TextStyle(
+                                              fontSize: 14,
+                                              color: ThemeApp.textColorBLACK,
                                             ),
                                           ),
-                                        ],
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  height: 80,
+                                  width: 290,
+                                  padding: const EdgeInsets.all(8),
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      const Icon(Icons.email_sharp, size: 30),
+                                      MouseRegion(
+                                        cursor: SystemMouseCursors.click,
+                                        child: GestureDetector(
+                                          onTap: () => launchURL(
+                                            "mailto:mohammed-alshammari0@hotmail.com",
+                                          ),
+                                          child: Text(
+                                            "mohammed-alshammari0@hotmail.com",
+                                            style: TextStyle(
+                                              fontSize: 14,
+                                              color: ThemeApp.textColorBLACK,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  height: 80,
+                                  width: 290,
+                                  padding: const EdgeInsets.all(8),
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      const Icon(
+                                        FontAwesomeIcons.xTwitter,
+                                        size: 30,
+                                        color: Color.fromARGB(255, 0, 0, 0),
+                                      ),
+                                      MouseRegion(
+                                        cursor: SystemMouseCursors.click,
+                                        child: GestureDetector(
+                                          onTap: () => launchURL(
+                                            "https://x.com/iMOOD07",
+                                          ),
+                                          child: Text(
+                                            '@iMOOD07',
+                                            style: TextStyle(
+                                              fontSize: 14,
+                                              color: ThemeApp.textColorBLACK,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ],
                             ),
